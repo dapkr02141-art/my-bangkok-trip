@@ -8,48 +8,53 @@
         :root {
             --sea-green: #14a098; --sand-gold: #cb9d06; --tropical-white: #f7f9f9;
             --deep-ocean: #05445e; --grab-green: #00b14f; --star-gold: #c5a059;
-            --bot-blue: #004d99;
+            --coral-pink: #feb47b;
         }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif; margin: 0; background-color: var(--tropical-white); color: #333; overflow-x: hidden; }
         
-        /* 手機版優化 Header */
+        /* 渡假風 Header */
         header { 
             background: linear-gradient(135deg, #14a098 0%, #feb47b 100%); 
             padding: 40px 20px; color: white; text-align: center;
             border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        header h1 { font-size: 1.8rem; margin: 0; letter-spacing: 1px; }
+        header h1 { font-size: 1.8rem; margin: 0; letter-spacing: 1px; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
         header p { font-size: 0.9rem; margin: 8px 0 0; opacity: 0.9; }
 
         /* 滑動導航列 */
         nav { background: white; display: flex; overflow-x: auto; white-space: nowrap; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; scrollbar-width: none; }
         nav::-webkit-scrollbar { display: none; }
-        .nav-tab { padding: 16px 22px; cursor: pointer; font-weight: bold; color: #888; flex: 1; text-align: center; font-size: 0.95rem; }
+        .nav-tab { padding: 16px 20px; cursor: pointer; font-weight: bold; color: #888; flex: 1; text-align: center; font-size: 0.95rem; }
         .nav-tab.active { color: var(--sea-green); border-bottom: 4px solid var(--sea-green); }
 
         .container { max-width: 600px; margin: auto; padding: 15px; }
         .content-section { display: none; animation: fadeIn 0.3s ease-in-out; }
         .content-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* 卡片與按鈕 */
         .card { background: white; padding: 20px; border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid #f2f2f2; }
         .btn { display: flex; align-items: center; justify-content: center; color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; margin-top: 10px; font-size: 1rem; font-weight: bold; width: 100%; }
         .btn-map { background: var(--sea-green); }
         .btn-flight { background: var(--star-gold); margin-bottom: 8px; }
-        .btn-bot { background: var(--bot-blue); font-size: 0.9rem; }
+        .btn-bot { background: var(--bot-blue, #004d99); font-size: 0.9rem; }
         .btn-grab { background: var(--grab-green); font-size: 1.1rem; padding: 15px; }
         
         h2 { color: var(--deep-ocean); border-left: 5px solid var(--sand-gold); padding-left: 12px; margin: 10px 0 20px; font-size: 1.25rem; }
         .thai-address { background: #fff8eb; border: 1px dashed var(--sand-gold); padding: 15px; border-radius: 12px; font-size: 1.1rem; color: #222; margin: 12px 0; line-height: 1.4; }
 
-        /* 伴手禮 Q版卡片 */
+        /* 伴手禮卡片 (文字版) */
         .gift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .gift-card { background: white; border-radius: 15px; overflow: hidden; border: 1px solid #eee; text-align: center; padding: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
-        .gift-card img { width: 100%; height: 100px; object-fit: contain; border-radius: 10px; }
-        .gift-card h4 { margin: 10px 0 0; font-size: 0.9rem; color: var(--deep-ocean); }
+        .gift-card { background: white; border-radius: 15px; overflow: hidden; border: 1px solid #eee; text-align: center; padding: 20px 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .gift-icon { font-size: 2.5rem; margin-bottom: 10px; color: var(--sand-gold); }
+        .gift-card h4 { margin: 0; font-size: 1rem; color: var(--deep-ocean); }
+        .gift-card p { margin: 5px 0 0; font-size: 0.8rem; color: #777; }
+
+        /* 行程 Day Box */
+        .day-box { margin-bottom: 30px; border-left: 3px solid var(--sea-green); padding-left: 15px; }
+        .day-box h3 { color: var(--sea-green); margin: 0 0 10px; }
 
         /* 翻譯與清單 */
         .trans-box { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #ddd; font-size: 1rem; margin-bottom: 12px; background: #fafafa; }
@@ -64,7 +69,7 @@
 
 <header>
     <h1>BANGKOK RETREAT</h1>
-    <p>星宇航空 JX745 ➔ JX742 | 宜比思尚品</p>
+    <p>星宇航空 JX745 ➔ JX742 | 宜必思尚品</p>
 </header>
 
 <nav id="topNav">
@@ -120,12 +125,36 @@
     <div id="page4" class="content-section">
         <h2>🛍️ 必買推薦 (Big C 採購)</h2>
         <div class="gift-grid">
-            <div class="gift-card"><img src="https://imagegen.vdb.ai/a/04e8d384-cb98-4c91-b3b0-51b681944da9.png"><h4>小老闆海苔</h4></div>
-            <div class="gift-card"><img src="https://imagegen.vdb.ai/a/a6176978-f75e-4c59-bf57-4151a1ca5d86.png"><h4>手標泰奶</h4></div>
-            <div class="gift-card"><img src="https://imagegen.vdb.ai/a/17094d21-4f10-4497-a75d-5fb901f4c7f0.png"><h4>MAMA泡麵</h4></div>
-            <div class="gift-card"><img src="https://imagegen.vdb.ai/a/6b3f886c-0e24-42f0-94d0-40be998f4e20.png"><h4>蛇牌爽身粉</h4></div>
-            <div class="gift-card"><img src="https://imagegen.vdb.ai/a/240b904c-352b-4560-afb2-302324b171f1.png"><h4>八仙薄荷棒</h4></div>
-            <div class="gift-card"><img src="https://imagegen.vdb.ai/a/2b163820-bd70-4f51-b844-323f46f48348.png"><h4>痠痛軟膏</h4></div>
+            <div class="gift-card">
+                <div class="gift-icon">🌿</div>
+                <h4>小老闆海苔</h4>
+                <p>口味超多，酸辣蝦湯最道地</p>
+            </div>
+            <div class="gift-card">
+                <div class="gift-icon">☕</div>
+                <h4>手標泰式奶茶</h4>
+                <p>經典罐裝，送禮自用兩相宜</p>
+            </div>
+            <div class="gift-card">
+                <div class="gift-icon">🍜</div>
+                <h4>MAMA 泡麵</h4>
+                <p>酸辣蝦湯、綠咖哩必掃</p>
+            </div>
+            <div class="gift-card">
+                <div class="gift-icon">❄️</div>
+                <h4>蛇牌爽身粉</h4>
+                <p>夏日神器，清涼解暑</p>
+            </div>
+            <div class="gift-card">
+                <div class="gift-icon">👃</div>
+                <h4>POYSIAN 薄荷棒</h4>
+                <p>泰國在地薄荷棒，頭暈必備</p>
+            </div>
+            <div class="gift-card">
+                <div class="gift-icon">🩹</div>
+                <h4>Counterpain</h4>
+                <p>痠痛軟膏(紅/藍)，網路激推</p>
+            </div>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&query=Big+C+Ratchadamri" target="_blank" class="btn btn-map" style="margin-top:25px;">導航至 Big C 旗艦店</a>
     </div>
@@ -133,7 +162,7 @@
     <div id="page3" class="content-section">
         <h2>💰 匯率快算 (1:1.1)</h2>
         <div class="card" style="background: var(--sea-green); color: white;">
-            <a href="https://rate.bot.com.tw/xrt?Lang=zh-TW" target="_blank" class="btn btn-bot">台銀即時匯率查詢</a>
+            <a href="https://rate.bot.com.tw/xrt?Lang=zh-TW" target="_blank" class="btn btn-bot" style="background:#004d99; border-radius:30px; font-weight:bold;">台銀即時匯率查詢</a>
             <p style="margin-top:20px;">匯率 (如 1.10)：</p>
             <input type="number" id="rate" value="1.10" step="0.01" class="trans-box">
             <p>台幣金額 (TWD)：</p>
@@ -152,7 +181,7 @@
                 <option value="多少錢？">多少錢？</option>
             </select>
             <div id="thai_res"></div>
-            <a href="https://translate.google.com/?sl=zh-TW&tl=th&op=translate" target="_blank" class="btn btn-bot" style="background:#4285F4; margin-top:15px;">開啟 Google 翻譯</a>
+            <a href="https://translate.google.com/?sl=zh-TW&tl=th&op=translate" target="_blank" class="btn-bot" style="display:flex; justify-content:center; align-items:center; color:white; padding:12px; text-decoration:none; border-radius:30px; background:#4285F4; margin-top:15px; font-weight:bold;">開啟 Google 翻譯</a>
         </div>
 
         <div class="card" style="background:#000;">
